@@ -1,6 +1,6 @@
 import React from "react";
 
-class Carousel extends React.component {
+class Carousel extends React.Component {
   state = {
     photos: [],
     active: 0
@@ -14,6 +14,13 @@ class Carousel extends React.component {
 
     return { photos };
   }
+  //arrow function for when class properties added
+  //otherwise use handClick.bind(this) in constructor
+  handleClick = event => {
+    this.setState({
+      active: +event.target.dataset.index
+    });
+  };
   render() {
     const { photos, active } = this.state;
     return (
